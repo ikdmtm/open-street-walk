@@ -26,9 +26,11 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["leaflet", "npm:1.9.3"],\
           ["next", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:13.2.4"],\
           ["react", "npm:18.2.0"],\
-          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"]\
+          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"],\
+          ["react-leaflet", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -159,6 +161,36 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@react-leaflet/core", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/@react-leaflet-core-npm-2.1.0-de483ca53f-9.zip/node_modules/@react-leaflet/core/",\
+        "packageDependencies": [\
+          ["@react-leaflet/core", "npm:2.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:73bb0d5692ef97f1a0f81593c43150d75a043844c02f31999458b258b790020d59e74dc9653729f3b30a181f8e2ae2b1762aa4a37a87be2bf92a811578418eab#npm:2.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/@react-leaflet-core-virtual-927052a13e/4/.yarn/berry/cache/@react-leaflet-core-npm-2.1.0-de483ca53f-9.zip/node_modules/@react-leaflet/core/",\
+        "packageDependencies": [\
+          ["@react-leaflet/core", "virtual:73bb0d5692ef97f1a0f81593c43150d75a043844c02f31999458b258b790020d59e74dc9653729f3b30a181f8e2ae2b1762aa4a37a87be2bf92a811578418eab#npm:2.1.0"],\
+          ["@types/leaflet", null],\
+          ["@types/react", null],\
+          ["@types/react-dom", null],\
+          ["leaflet", "npm:1.9.3"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/leaflet",\
+          "@types/react-dom",\
+          "@types/react",\
+          "leaflet",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@swc/helpers", [\
       ["npm:0.4.14", {\
         "packageLocation": "../../../.yarn/berry/cache/@swc-helpers-npm-0.4.14-f806c3fb16-9.zip/node_modules/@swc/helpers/",\
@@ -192,6 +224,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../.yarn/berry/cache/js-tokens-npm-4.0.0-0ac852e9e2-9.zip/node_modules/js-tokens/",\
         "packageDependencies": [\
           ["js-tokens", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["leaflet", [\
+      ["npm:1.9.3", {\
+        "packageLocation": "../../../.yarn/berry/cache/leaflet-npm-1.9.3-08e9e2d69b-9.zip/node_modules/leaflet/",\
+        "packageDependencies": [\
+          ["leaflet", "npm:1.9.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -280,9 +321,11 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["open-street-walk", "workspace:."],\
+          ["leaflet", "npm:1.9.3"],\
           ["next", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:13.2.4"],\
           ["react", "npm:18.2.0"],\
-          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"]\
+          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"],\
+          ["react-leaflet", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.2.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -337,6 +380,37 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-leaflet", [\
+      ["npm:4.2.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-leaflet-npm-4.2.1-e2245640e8-9.zip/node_modules/react-leaflet/",\
+        "packageDependencies": [\
+          ["react-leaflet", "npm:4.2.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.2.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-leaflet-virtual-73bb0d5692/4/.yarn/berry/cache/react-leaflet-npm-4.2.1-e2245640e8-9.zip/node_modules/react-leaflet/",\
+        "packageDependencies": [\
+          ["react-leaflet", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.2.1"],\
+          ["@react-leaflet/core", "virtual:73bb0d5692ef97f1a0f81593c43150d75a043844c02f31999458b258b790020d59e74dc9653729f3b30a181f8e2ae2b1762aa4a37a87be2bf92a811578418eab#npm:2.1.0"],\
+          ["@types/leaflet", null],\
+          ["@types/react", null],\
+          ["@types/react-dom", null],\
+          ["leaflet", "npm:1.9.3"],\
+          ["react", "npm:18.2.0"],\
+          ["react-dom", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:18.2.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/leaflet",\
+          "@types/react-dom",\
+          "@types/react",\
+          "leaflet",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\

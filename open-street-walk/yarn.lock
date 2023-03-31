@@ -103,6 +103,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-leaflet/core@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@react-leaflet/core@npm:2.1.0"
+  peerDependencies:
+    leaflet: ^1.9.0
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: 8b8bb7aaddb2c39b777be238ab392887658b968aedbd0595b51d0c21dd5a5265ce2b28e68b8468c34dc8be597f4db7efbc53cac3fbec0e4c4f8e7954ea6ef9bf
+  languageName: node
+  linkType: hard
+
 "@swc/helpers@npm:0.4.14":
   version: 0.4.14
   resolution: "@swc/helpers@npm:0.4.14"
@@ -130,6 +141,13 @@ __metadata:
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
   checksum: 47d1c18dc6b9eed4baf1db3d81b36feb95b463201c82ffce0d7a4d65ede596ba97d6ac2468974199705db9ef8a3433606af41fc7bbe7cb25c1dd601785413d9b
+  languageName: node
+  linkType: hard
+
+"leaflet@npm:^1.9.3":
+  version: 1.9.3
+  resolution: "leaflet@npm:1.9.3"
+  checksum: 07db8c8cd69da4990b80391a08f4c158149fdf9ca09ce9a42fc86564f8d82cedb98bddf67b91770f9b2b630fae3f4369cfd153a8e9eefe89e2bb3dcfb35133da
   languageName: node
   linkType: hard
 
@@ -228,9 +246,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "open-street-walk@workspace:."
   dependencies:
+    leaflet: "npm:^1.9.3"
     next: "npm:13.2.4"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    react-leaflet: "npm:^4.2.1"
   languageName: unknown
   linkType: soft
 
@@ -252,7 +272,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
+"react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -264,7 +284,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react-leaflet@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "react-leaflet@npm:4.2.1"
+  dependencies:
+    "@react-leaflet/core": "npm:^2.1.0"
+  peerDependencies:
+    leaflet: ^1.9.0
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  checksum: ca92611fd27a52eaf12386e16b2ddc44cb7f77fdd0189bfa6b8483bbb6362fee27e2a238312cb96a9a5c87712a07cc80423bf659f942e2756644ef14ccbef170
+  languageName: node
+  linkType: hard
+
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
