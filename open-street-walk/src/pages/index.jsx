@@ -88,7 +88,7 @@ const Home = (props) => {
             <div>{Cookies.get("uid")} <button onClick={authSignOut}>ログアウト</button></div>
           ) : (
             <div>
-            <Link href={"/LogIn"}>ログイン</Link> <Link href={"/New"}>新規登録</Link></div>
+            <Link href={"/Login"}>ログイン</Link> <Link href={"/New"}>新規登録</Link></div>
           )}
         </header>
         <main className={styles.main}>
