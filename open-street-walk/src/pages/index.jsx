@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
 import { useCallback, useState } from "react";
@@ -7,12 +6,13 @@ import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 
-const inter = Inter({ subsets: ["latin"] });
-export default function Home() {
+const Home = (props) => {
   // const [marker, setMarker] = useState([35.5623, 139.7151]);
   const [lat, setLat] = useState(35.5623);
   const [lng, setLng] = useState(139.7151);
   const [pins, setPins] = useState([]);
+  const router = useRouter();
+  console.log(props)
 
   const handleChangeLat = useCallback((e) => {
     setLat(e.target.value);
@@ -23,10 +23,13 @@ export default function Home() {
   }, []);
 
   const handleClick = useCallback(() => {
-    // setMarker([lat, lng]);
+    const newPin = [Number(lat), Number(lng)];
     setPins((prevPins) => {
-      const newPins = [...prevPins, [Number(lat), Number(lng)]];
-      return newPins;
+      if(prevPins.some(pin => pin.every((value, index) => value === newPin[index]))){
+        alert("同じ位置にピンが存在します");
+        return prevPins;
+      }
+      return [...prevPins, newPin];
     });
   }, [lat, lng]);
 
@@ -104,8 +107,11 @@ export default function Home() {
             </div>
           </div>
         </main>
+        <button onClick={button}>クッキー情報</button>
         <footer className={styles.footer}>footer</footer>
       </div>
     </>
   );
-}
+};
+
+export default Home;
