@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
 import { useCallback, useState } from "react";
+import Link from "next/link";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
@@ -29,6 +32,43 @@ export default function Home() {
 
   console.log("lat, lng", lat, lng);
   console.log("pins", pins);
+  console.log("isLogin", props.isLogin);
+
+  //ログアウトの処理
+  const url = "http://localhost:3000/auth/sign_out";
+  const authSignOut = async () => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "uid": Cookies.get("uid"),
+        "client": Cookies.get("client"),
+        "access-token": Cookies.get("access-token"),
+      },
+    };
+    try {
+      const res = await fetch(url, options);
+      if (!res.ok) {
+        throw new Error("Failed to sign out user from API");
+      }
+      console.log("Success: user has signed out.");
+      //ログアウト成功でクッキーの削除
+      Cookies.remove("uid");
+      Cookies.remove("client");
+      Cookies.remove("access-token");
+      //ログイン状態の変更
+      props.setIsLogin(false);
+      console.log("success", Cookies.get("uid"));
+      router.push("/"); //redirect
+    } catch (error) {
+      console.error(error);
+      //ログアウト失敗で何もしない
+    }
+  };
+
+  const button = () => {
+    console.log(Cookies.get("uid"));
+  };
 
   return (
     <>
@@ -39,7 +79,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
-        <header className={styles.header}>header</header>
+        <header className={styles.header}>
+          <Link href={"/"}>open-street-walk</Link>
+          {props.isLogin ? (
+            <div>{Cookies.get("uid")} <button onClick={authSignOut}>ログアウト</button></div>
+          ) : (
+            <div>
+            <Link href={"/LogIn"}>ログイン</Link> <Link href={"/New"}>新規登録</Link></div>
+          )}
+        </header>
         <main className={styles.main}>
           <Map pins={pins} />
           <div className={styles.inputForm}>
