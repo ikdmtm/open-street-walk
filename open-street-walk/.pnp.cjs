@@ -26,6 +26,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["js-cookie", "npm:3.0.1"],\
           ["leaflet", "npm:1.9.3"],\
           ["next", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:13.2.4"],\
           ["next-auth", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.20.1"],\
@@ -257,6 +258,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["js-cookie", [\
+      ["npm:3.0.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/js-cookie-npm-3.0.1-04c7177de1-9.zip/node_modules/js-cookie/",\
+        "packageDependencies": [\
+          ["js-cookie", "npm:3.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["js-tokens", [\
       ["npm:4.0.0", {\
         "packageLocation": "../../../.yarn/berry/cache/js-tokens-npm-4.0.0-0ac852e9e2-9.zip/node_modules/js-tokens/",\
@@ -439,6 +449,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["open-street-walk", "workspace:."],\
+          ["js-cookie", "npm:3.0.1"],\
           ["leaflet", "npm:1.9.3"],\
           ["next", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:13.2.4"],\
           ["next-auth", "virtual:b30e77446fd17a1f949e4d68b0dd229fb665dcc982b67da1855b1c451e1954f815e7d9f1452196498ccfb0bc3aa206f7d175c7f1e7ae7b5a7eab4b551f2e00a3#npm:4.20.1"],\

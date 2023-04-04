@@ -167,6 +167,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-cookie@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "js-cookie@npm:3.0.1"
+  checksum: b55a4564a7ab6cfe39b35a4bae12c7eb917f0c20be7947116362cc338d5e0197947ca2406cf359366cfa541d1c1700a63a5ab131980cb88b4d0f4a49a1df6a1d
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -331,6 +338,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "open-street-walk@workspace:."
   dependencies:
+    js-cookie: "npm:^3.0.1"
     leaflet: "npm:^1.9.3"
     next: "npm:13.2.4"
     next-auth: "npm:^4.20.1"
