@@ -1,22 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: false, // 'media' or 'class'
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}'
-    ],
-    options: {
-      // https://purgecss.com/safelisting.html#patterns
-      safelist: {
-        standard: [/^bg-/, /^text-/],
-      },
-    },
-  },
-  content: [],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}", // Note the addition of the `app` directory.
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
   plugins: [],
 }
-
