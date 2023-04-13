@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
-// import React from "react";
+import styles from "src/styles/Home.module.css";
 
 const Map = dynamic(() => import("./Map"), {
-  loading: () => <p>A map is loading</p>,
+  loading: () => <div className={styles.map}>A map is loading</div>,
   ssr: false,
 });
 
