@@ -1,77 +1,29 @@
 import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
-import { useCallback, useState } from "react";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const Home = (props) => {
-  // const [marker, setMarker] = useState([35.5623, 139.7151]);
-  const [lat, setLat] = useState(35.5623);
-  const [lng, setLng] = useState(139.7151);
-  const [pins, setPins] = useState([]);
+  // const [pins, setPins] = useState(
+  //   props.pinsData.map((pin) => {
+  //     return [pin.title, pin.lat, pin.lng];
+  //   })
+  // );
   const router = useRouter();
-  console.log(props)
 
-  const handleChangeLat = useCallback((e) => {
-    setLat(e.target.value);
-  }, []);
-
-  const handleChangeLng = useCallback((e) => {
-    setLng(e.target.value);
-  }, []);
-
-  const handleClick = useCallback(() => {
-    const newPin = [Number(lat), Number(lng)];
-    setPins((prevPins) => {
-      if(prevPins.some(pin => pin.every((value, index) => value === newPin[index]))){
-        alert("同じ位置にピンが存在します");
-        return prevPins;
-      }
-      return [...prevPins, newPin];
-    });
-  }, [lat, lng]);
-
-  console.log("lat, lng", lat, lng);
-  console.log("pins", pins);
-  console.log("isLogin", props.isLogin);
-
-  //ログアウトの処理
-  const url = "http://localhost:3000/auth/sign_out";
-  const authSignOut = async () => {
-    const options = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "uid": Cookies.get("uid"),
-        "client": Cookies.get("client"),
-        "access-token": Cookies.get("access-token"),
-      },
-    };
-    try {
-      const res = await fetch(url, options);
-      if (!res.ok) {
-        throw new Error("Failed to sign out user from API");
-      }
-      console.log("Success: user has signed out.");
-      //ログアウト成功でクッキーの削除
-      Cookies.remove("uid");
-      Cookies.remove("client");
-      Cookies.remove("access-token");
-      //ログイン状態の変更
-      props.setIsLogin(false);
-      console.log("success", Cookies.get("uid"));
-      router.push("/"); //redirect
-    } catch (error) {
-      console.error(error);
-      //ログアウト失敗で何もしない
-    }
-  };
-
+  //cookie情報確認用
   const button = () => {
-    console.log(Cookies.get("uid"));
+    console.log(
+      Cookies.get("uid"),
+      Cookies.get("client"),
+      Cookies.get("access-token")
+    );
   };
+
+  console.log(props);
 
   return (
     <>
@@ -83,35 +35,88 @@ const Home = (props) => {
       </Head>
       <div className={styles.container}>
         <header className={styles.header}>
-          <Link href={"/"}>open-street-walk</Link>
+          <Link href={"/"}>OpenStreetWalk</Link>
           {props.isLogin ? (
-            <div>{Cookies.get("uid")} <button onClick={authSignOut}>ログアウト</button></div>
+            <div>
+              <Link href={"/pins/new"}>ピン作成</Link>
+              {"　"}
+              <span className={styles.signout} onClick={props.authSignout}>
+                ログアウト
+              </span>
+            </div>
           ) : (
             <div>
-            <Link href={"/Login"}>ログイン</Link> <Link href={"/New"}>新規登録</Link></div>
+              <Link href={"/signin"}>ログイン</Link>
+              {"　"}
+              <Link href={"/signup"}>新規登録</Link>
+            </div>
           )}
         </header>
         <main className={styles.main}>
-          <Map pins={pins} />
-          <div className={styles.inputForm}>
-            <p>タイトル</p>
-            <input type="text"></input>
-            <p>画像</p>
-            <input type="file"></input>
-            <p>経度</p>
-            <input type="number" onChange={handleChangeLat} value={lat}></input>
-            <p>緯度</p>
-            <input type="number" onChange={handleChangeLng} value={lng}></input>
+          <Map pinsData={props.pinsData} />
+          {/* <div className={styles.content}>
             <div>
-              <button onClick={handleClick}>ピン作成</button>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th className={`${styles.table} ${styles.th}`}>title</th>
+                    <th className={`${styles.table} ${styles.th}`}>緯度</th>
+                    <th className={`${styles.table} ${styles.th}`}>経度</th>
+                  </tr>
+                </thead>
+                {props.pinsData.length
+                  ? props.pinsData.map((pin) => {
+                      return (
+                        <tbody key={pin.id}>
+                          <tr>
+                            <td className={`${styles.table} ${styles.th}`}>
+                              {pin.title}
+                            </td>
+                            <td className={`${styles.table} ${styles.th}`}>
+                              {pin.lat}
+                            </td>
+                            <td className={`${styles.table} ${styles.th}`}>
+                              {pin.lng}
+                            </td>
+                          </tr>
+                        </tbody>
+                      );
+                    })
+                  : null}
+              </table>
             </div>
-          </div>
+          </div> */}
         </main>
-        <button onClick={button}>クッキー情報</button>
+        {/* <button onClick={button}>クッキー情報</button> */}
         <footer className={styles.footer}>footer</footer>
       </div>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  const url = "http://localhost:3000/pins";
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("ピンのデータ取得に失敗");
+    }
+    console.log("Success: ピンのデータを取得");
+    const pins = await res.json();
+    const pinsData = pins || null;
+    return {
+      props: {
+        pinsData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        pinsData: null,
+      },
+    };
+  }
 };
 
 export default Home;
