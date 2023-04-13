@@ -79,7 +79,6 @@ const SignIn = (props) => {
             handleAuth={handleAuth}
           />
         </main>
-        <footer className={styles.footer}>footer</footer>
       </div>
     </>
   );

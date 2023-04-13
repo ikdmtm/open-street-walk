@@ -14,15 +14,6 @@ const Home = (props) => {
   // );
   const router = useRouter();
 
-  //cookie情報確認用
-  const button = () => {
-    console.log(
-      Cookies.get("uid"),
-      Cookies.get("client"),
-      Cookies.get("access-token")
-    );
-  };
-
   console.log(props);
 
   return (
@@ -87,8 +78,6 @@ const Home = (props) => {
             </div>
           </div> */}
         </main>
-        {/* <button onClick={button}>クッキー情報</button> */}
-        <footer className={styles.footer}>footer</footer>
       </div>
     </>
   );
