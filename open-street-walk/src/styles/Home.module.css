@@ -9,23 +9,79 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 60px;
+  height: 50px;
   padding: 10px;
+  border-bottom: 1px;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 900px;
+  /* max-width: 900px; */
   width: 100%;
   flex: 1;
 }
 
+.content{
+  display: flex;
+  margin: 20px;
+  width: 100%;
+}
+
+.table{
+  border: solid 1px #e5e7eb;
+  border-collapse: collapse;
+}
+
+.th{
+  padding: 10px;
+}
+
+.signout:hover{
+  cursor: pointer;
+}
+
+/* .signinButton{
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  width: 85px;
+  height: 30px;
+  color: white;
+  background-color: #3B82F6;
+}
+
+.signupButton{
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  width: 85px;
+  height: 30px;
+  color: white;
+  background-color:seagreen;
+} */
+
+.loginFormWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.button:hover{
+  opacity: 0.7;
+}
+
+
 .map {
   width: 100%;
-  height: 500px;
+  display: flex;
+  flex: 1;
 }
 
 .footer {
