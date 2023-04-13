@@ -1,0 +1,53 @@
+.inputForm{
+  margin: 20px;
+  padding: 10px 20px;
+  width: 350px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formTitle{
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
+.inputGroupe{
+  width: 100%;
+  margin: 5px;
+}
+
+.inputTitle{
+  font-size: 0.875rem;
+  margin: 5px;
+}
+
+.input{
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #e5e7eb;
+}
+
+.input:focus {
+  outline: 2px solid #3b83f6d8;  
+}
+
+.button{
+  margin: 10px 0;
+  width: 100%;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #3B82F6;
+  color: white;
+  font-weight: 550;
+}
+
+.signin{
+  font-size: 14px;
+  color: #3B82F6;
+}

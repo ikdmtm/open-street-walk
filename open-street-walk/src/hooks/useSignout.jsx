@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Cookies from "js-cookie";
 
-export const useSignOut = (props) => {
+export const useSignout = () => {
+  const [isLogin, setIsLogin] = useState(false);
   const router = useRouter();
   //ログアウトの処理
-  const url = "http://localhost:3000/auth/sign_out";
-  const authSignOut = async () => {
+  const authSignout = async () => {
+    const url = "http://localhost:3000/auth/sign_out";
     const options = {
       method: "DELETE",
       headers: {
@@ -18,21 +20,20 @@ export const useSignOut = (props) => {
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
-        throw new Error("Failed to sign out user from API");
+        throw new Error("ログアウトに失敗");
       }
-      console.log("Success: user has signed out.");
       //ログアウト成功でクッキーの削除
       Cookies.remove("uid");
       Cookies.remove("client");
       Cookies.remove("access-token");
       //ログイン状態の変更
-      props.setIsLogin(false);
-      console.log("success", Cookies.get("uid"));
+      setIsLogin(false);
+      console.log("success: ログアウトに成功");
       router.push("/"); //redirect
     } catch (error) {
       console.error(error);
       //ログアウト失敗で何もしない
     }
   };
-  return { authSignOut };
+  return { isLogin, setIsLogin, authSignout };
 };
