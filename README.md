@@ -2,30 +2,30 @@
 
 ## フロントエンド
 
-node: v18.15.0
-next.js: 13.2.3
+node: v18.15.0  
+next.js: 13.2.3  
 yarn: 4.0.0
 
--   パッケージ
-    js-cookie: 3.0.1
-    leaflet: 1.9.3
+-   パッケージ  
+    js-cookie: 3.0.1  
+    leaflet: 1.9.3  
     react-leaflet: 4.2.1
 
 ## バックエンド
 
 <https://github.com/ikdmtm/open-street-walk-backend>
 
-ruby: 3.2.1
+ruby: 3.2.1  
 rails: 7.0.4
 
--   gem
-    devise
-    devise_token_auth
+-   gem  
+    devise  
+    devise_token_auth  
     rack-cors
 
 ## 概要
 
-散歩がより楽しくなるようなアプリ
+散歩がより楽しくなるようなアプリ  
 地図上にピンを設置してスポットを共有することができる
 
 ## 使いかた
@@ -40,6 +40,6 @@ rails: 7.0.4
 
 *   マイページの作成
     -   作成したピンの表示
-    -   作成したピンに削除ボタン
+    -   作成したピンの削除ボタン
     *   お気に入りに追加したピンの表示
 *   住所を指定してマップを移動
