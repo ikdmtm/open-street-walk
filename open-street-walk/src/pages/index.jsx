@@ -84,7 +84,7 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const url = "http://localhost:3000/pins";
+  const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/pins";
   try {
     const res = await fetch(url);
     if (!res.ok) {

@@ -7,7 +7,7 @@ export const useSignout = () => {
   const router = useRouter();
   //ログアウトの処理
   const authSignout = async () => {
-    const url = "http://localhost:3000/auth/sign_out";
+    const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/auth/sign_out";
     const options = {
       method: "DELETE",
       headers: {

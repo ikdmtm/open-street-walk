@@ -5,7 +5,6 @@ import "src/styles/globals.css";
 
 const App = ({ Component, pageProps }) => {
   const authSignout = useSignout();
-  // const [isLogin, setIsLogin] = useState(false);
   useEffect(() => {
     const token = Cookies.get("uid");
     if (token) {
