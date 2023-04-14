@@ -499,6 +499,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.29.3":
+  version: 2.29.3
+  resolution: "date-fns@npm:2.29.3"
+  checksum: 7e0d58b93506bb34184fd8a86ffc84fffa5188789a8afd22622e2f129f0adc40df755133705d95532beac53f2cecc812dc1753e801ae945a604c323cdaa3bbc1
+  languageName: node
+  linkType: hard
+
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.3.3":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -1387,6 +1394,7 @@ __metadata:
   resolution: "open-street-walk@workspace:."
   dependencies:
     autoprefixer: "npm:^10.4.14"
+    date-fns: "npm:^2.29.3"
     js-cookie: "npm:^3.0.1"
     leaflet: "npm:^1.9.3"
     next: "npm:13.2.4"
@@ -1395,6 +1403,7 @@ __metadata:
     postcss-nested: "npm:^6.0.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    react-hook-form: "npm:^7.43.9"
     react-leaflet: "npm:^4.2.1"
     tailwindcss: "npm:^3.3.1"
   languageName: unknown
@@ -1631,6 +1640,15 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 7c5b915fb793d63563cec1f721e059e6ff0e2855ac116ab5cb7450b6c59398f5e25f95c960ce5cb93504cc58ab724a75a78e99282354e702a0e667d0d787d028
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.43.9":
+  version: 7.43.9
+  resolution: "react-hook-form@npm:7.43.9"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 9aa66b9eac80bcf365a15d70ee8a36204ce4398f1cbd6e15fdd2e79eb2bc8931bfd648a82b2eeb4fc5e31b41654a1624424597b422769c6f72885408f85375ba
   languageName: node
   linkType: hard
 
