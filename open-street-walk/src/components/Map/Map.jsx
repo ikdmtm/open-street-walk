@@ -1,3 +1,6 @@
+import styles from "src/components/Map/Map.module.css";
+import Image from "next/image";
+import { format } from "date-fns";
 import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
@@ -9,12 +12,10 @@ import {
   CircleMarker,
   useMap,
 } from "react-leaflet";
-import styles from "src/styles/Home.module.css";
 import L from "leaflet";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { useState } from "react";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -34,6 +35,12 @@ const Map = (props) => {
       });
     });
     return null;
+  };
+
+  const formatFunction = (time) => {
+    const createdAt = new Date(time);
+    const formattedCreatedAt = format(createdAt, "yyyy-MM-dd  HH:mm");
+    return formattedCreatedAt;
   };
 
   //現在地にピンを指して中心に移動
@@ -56,6 +63,10 @@ const Map = (props) => {
   //   );
   // };
 
+  const clickMarker = () => {
+    return <p>test</p>;
+  };
+
   return (
     <MapContainer
       className={styles.map}
@@ -68,18 +79,31 @@ const Map = (props) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {/* <SetViewOnClick /> */}
-      {props.pinsData.length
-        ? props.pinsData.map((pin) => {
+      {props.pinsData.pins.length
+        ? props.pinsData.pins.map((pin) => {
             return (
               <Marker position={[pin.lat, pin.lng]} key={pin.id}>
                 <Popup>
-                  <p>{pin.title}</p>
-                  <p>{pin.created_at}</p>
+                  <p className={styles.title}>{pin.title}</p>
+                  {props.pinsData.pin_urls[pin.id - 1] ? (
+                    <div className={styles.image}>
+                      <Image
+                        src={props.pinsData.pin_urls[pin.id - 1]}
+                        alt="画像"
+                        layout="fill"
+                        objectFit="contain"
+                      />
+                    </div>
+                  ) : null}
+                  <p className={styles.description}>
+                    {pin.lat}
+                    {",   "}
+                    {pin.lng}
+                    <br />
+                    {formatFunction(pin.created_at)}
+                  </p>
                 </Popup>
               </Marker>
-              // <CircleMarker center={pin} pathOptions={{ fillColor: "blue" }} radius={5}>
-              //   <Popup>Popup in CircleMarker</Popup>
-              // </CircleMarker>
             );
           })
         : null}
