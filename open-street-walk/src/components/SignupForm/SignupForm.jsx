@@ -66,7 +66,7 @@ export const SignupForm = (props) => {
   return (
     <div className={styles.inputForm}>
       <h1 className={styles.formTitle}>新規登録</h1>
-      <p className={styles.error}>{props.errorMessage}</p>
+      <p className={styles.error}>{errorMessage}</p>
       <div className={styles.inputGroupe}>
         <p className={styles.inputTitle}>メールアドレス</p>
         <input
