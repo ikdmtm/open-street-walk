@@ -46,3 +46,12 @@
   color: white;
   font-weight: 550;
 }
+
+.button:hover{
+  opacity: 0.5;
+}
+
+.error{
+  color: red;
+  font-size: 14px;
+}

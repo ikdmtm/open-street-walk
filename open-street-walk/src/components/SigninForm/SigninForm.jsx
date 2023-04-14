@@ -2,9 +2,11 @@ import styles from "src/components/SigninForm/SigninForm.module.css";
 import Link from "next/link";
 
 export const SigninForm = (props) => {
+  const [errorMessage, setErrorMessage] = useState("");
   return (
     <div className={styles.inputForm}>
       <h1 className={styles.formTitle}>ログイン</h1>
+      <p className={styles.error}>{errorMessage}</p>
       <div className={styles.inputGroupe}>
         <p className={styles.inputTitle}>メールアドレス</p>
         <input

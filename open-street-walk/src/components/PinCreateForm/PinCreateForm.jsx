@@ -4,7 +4,7 @@ export const PinCreateForm = (props) => {
   return (
     <div className={styles.inputForm}>
       <h1 className={styles.formTitle}>ピンの作成</h1>
-
+      <p className={styles.error}>{props.errorMessage}</p>
       <div className={styles.inputGroupe}>
         <p className={styles.inputTitle}>タイトル</p>
         <input
@@ -35,6 +35,9 @@ export const PinCreateForm = (props) => {
           value={props.lng}
           className={styles.input}
         ></input>
+      </div>
+      <div className={styles.inputGroupe}>
+        <button onClick={props.handleGetLocation}>現在地を取得</button>
       </div>
       <div className={styles.inputGroupe}>
         <button className={styles.button} onClick={props.createPin}>

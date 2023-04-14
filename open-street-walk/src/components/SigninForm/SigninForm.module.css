@@ -47,6 +47,15 @@
   font-weight: 550;
 }
 
+.button:hover{
+  opacity: 0.5;
+}
+
+.error{
+  color: red;
+  font-size: 14px;
+}
+
 .signup{
   font-size: 14px;
   color: #3B82F6;
