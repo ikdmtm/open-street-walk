@@ -7,7 +7,7 @@ export const useSignout = () => {
   const router = useRouter();
   //ログアウトの処理
   const authSignout = async () => {
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/auth/sign_out`;
+    const url = "https://open-street-walk-backend.fly.dev/auth/sign_out";
     const options = {
       method: "DELETE",
       headers: {
