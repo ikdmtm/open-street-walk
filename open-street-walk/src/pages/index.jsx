@@ -43,7 +43,7 @@ const Home = (props) => {
           ) : (
             <div>
               <Link href={"/signin"}>ログイン</Link>
-              {"　"}
+              {"  "}
               <Link href={"/signup"}>新規登録</Link>
             </div>
           )}
