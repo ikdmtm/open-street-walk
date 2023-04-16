@@ -57,7 +57,7 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const url = `https://open-street-walk-backend.fly.dev/pins`;
+  const url = "https://open-street-walk-backend.fly.dev/pins";
   try {
     const res = await fetch(url);
     if (!res.ok) {
