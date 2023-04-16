@@ -18,7 +18,7 @@ const SignIn = (props) => {
             OpenStreetWalk
           </Link>
         </header>
-        <main class={styles.main}>
+        <main className={styles.main}>
           <SigninForm setIsLogin={props.setIsLogin} />
         </main>
       </div>

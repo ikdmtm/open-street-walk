@@ -19,34 +19,34 @@ const New = (props) => {
   } = useCreatePin();
 
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <Link href={"/"} className={`${styles.logo} ${styles.button}`}>
-          OpenStreetWalk
-        </Link>
-        {props.isLogin ? (
-          <div>
-            <span
-              className={`${styles.signout} ${styles.button}`}
-              onClick={props.authSignout}
-            >
-              ログアウト
-            </span>
-          </div>
-        ) : (
-          <div>
-            <Link href={"/signin"} className={styles.button}>
-              ログイン
-            </Link>
-            {"  "}
-            <Link href={"/signup"} className={styles.button}>
-              新規登録
-            </Link>
-          </div>
-        )}
-      </header>
-      <main className={styles.main}>
-        <div>
+    <>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <Link href={"/"} className={`${styles.logo} ${styles.button}`}>
+            OpenStreetWalk
+          </Link>
+          {props.isLogin ? (
+            <div>
+              <span
+                className={`${styles.signout} ${styles.button}`}
+                onClick={props.authSignout}
+              >
+                ログアウト
+              </span>
+            </div>
+          ) : (
+            <div>
+              <Link href={"/signin"} className={styles.button}>
+                ログイン
+              </Link>
+              {"  "}
+              <Link href={"/signup"} className={styles.button}>
+                新規登録
+              </Link>
+            </div>
+          )}
+        </header>
+        <main className={styles.main}>
           <PinCreateForm
             title={title}
             lat={lat}
@@ -60,9 +60,9 @@ const New = (props) => {
             createPin={createPin}
             handleGetLocation={handleGetLocation}
           />
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
 

@@ -50,38 +50,6 @@ const Home = (props) => {
         </header>
         <main className={styles.main}>
           <Map pinsData={props.pinsData} />
-          {/* <div className={styles.content}>
-            <div>
-              <table className={styles.table}>
-                <thead>
-                  <tr>
-                    <th className={`${styles.table} ${styles.th}`}>title</th>
-                    <th className={`${styles.table} ${styles.th}`}>緯度</th>
-                    <th className={`${styles.table} ${styles.th}`}>経度</th>
-                  </tr>
-                </thead>
-                {props.pinsData.length
-                  ? props.pinsData.map((pin) => {
-                      return (
-                        <tbody key={pin.id}>
-                          <tr>
-                            <td className={`${styles.table} ${styles.th}`}>
-                              {pin.title}
-                            </td>
-                            <td className={`${styles.table} ${styles.th}`}>
-                              {pin.lat}
-                            </td>
-                            <td className={`${styles.table} ${styles.th}`}>
-                              {pin.lng}
-                            </td>
-                          </tr>
-                        </tbody>
-                      );
-                    })
-                  : null}
-              </table>
-            </div>
-          </div> */}
         </main>
       </div>
     </>
