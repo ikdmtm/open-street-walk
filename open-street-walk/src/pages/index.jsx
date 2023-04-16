@@ -56,29 +56,29 @@ const Home = (props) => {
   );
 };
 
-// export const getServerSideProps = async () => {
-//   const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/pins";
-//   try {
-//     const res = await fetch(url);
-//     if (!res.ok) {
-//       throw new Error("ピンのデータ取得に失敗");
-//     }
-//     console.log("Success: ピンのデータを取得");
-//     const pins = await res.json();
-//     const pinsData = pins || null;
-//     return {
-//       props: {
-//         pinsData,
-//       },
-//     };
-//   } catch (error) {
-//     console.error(error);
-//     return {
-//       props: {
-//         pinsData: null,
-//       },
-//     };
-//   }
-// };
+export const getServerSideProps = async () => {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/pins";
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("ピンのデータ取得に失敗");
+    }
+    console.log("Success: ピンのデータを取得");
+    const pins = await res.json();
+    const pinsData = pins || null;
+    return {
+      props: {
+        pinsData,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      props: {
+        pinsData: null,
+      },
+    };
+  }
+};
 
 export default Home;
