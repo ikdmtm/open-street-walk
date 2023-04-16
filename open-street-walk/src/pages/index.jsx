@@ -32,7 +32,7 @@ const Home = (props) => {
               <Link href={"/pins/new"} className={styles.button}>
                 ピン作成
               </Link>
-              {"　"}
+              {"  "}
               <span
                 className={`${styles.signout} ${styles.button}`}
                 onClick={props.authSignout}
