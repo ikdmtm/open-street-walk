@@ -39,7 +39,7 @@ const New = (props) => {
               <Link href={"/signin"} className={styles.button}>
                 ログイン
               </Link>
-              {"  "}
+              {"　"}
               <Link href={"/signup"} className={styles.button}>
                 新規登録
               </Link>

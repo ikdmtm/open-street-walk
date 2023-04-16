@@ -43,7 +43,7 @@ const Home = (props) => {
           ) : (
             <div>
               <Link href={"/signin"}>ログイン</Link>
-              {"  "}
+              {"　"}
               <Link href={"/signup"}>新規登録</Link>
             </div>
           )}
@@ -57,7 +57,7 @@ const Home = (props) => {
 };
 
 export const getServerSideProps = async () => {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/pins";
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/pins`;
   try {
     const res = await fetch(url);
     if (!res.ok) {

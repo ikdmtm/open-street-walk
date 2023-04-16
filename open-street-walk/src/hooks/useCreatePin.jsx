@@ -45,7 +45,7 @@ export const useCreatePin = () => {
   //ピンをデータベースに保存
   const createPin = async () => {
     if (title && lat && lng && imageFile) {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/pins";
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/pins`;
       const data = await createFormData();
       const options = {
         method: "POST",

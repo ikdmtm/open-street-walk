@@ -24,7 +24,7 @@ export const SignupForm = (props) => {
 
   console.log(email, password, confirmation);
   //新規登録処理
-  const url = `${process.env.NEXT_PUBLIC_API_URL}` + "/auth";
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/auth`;
   const handleAuth = async () => {
     if (email && password && confirmation && password == confirmation) {
       const options = {
