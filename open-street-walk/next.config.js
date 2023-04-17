@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['open-street-walk-backend.fly.dev'], // ホスト名を設定
+    domains: ['open-street-walk-backend.fly.dev', 'localhost'], // ホスト名を設定
   },
 }
 

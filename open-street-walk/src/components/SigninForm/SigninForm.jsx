@@ -19,7 +19,7 @@ export const SigninForm = (props) => {
   }, []);
 
   //ログイン処理
-  const url = "https://open-street-walk-backend.fly.dev/auth/sign_in";
+  const url = process.env.NEXT_PUBLIC_API_URL + "/auth/sign_in";
   const handleAuth = async () => {
     if (password && email) {
       const options = {
