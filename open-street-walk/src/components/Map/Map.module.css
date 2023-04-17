@@ -5,8 +5,8 @@
 }
 
 .image {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   /* height: 250px; */
   position: relative;
   /* aspect-ratio: 1 / 1.4; */
@@ -23,8 +23,8 @@
 
 @media (max-width: 900px) {
   .image {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
 }
 
