@@ -66,8 +66,8 @@ export const useCreatePin = () => {
       setTitle(e.target.value);
     } else {
       setTitle((prevTitle) => prevTitle);
-      setErrorMessage("タイトルは25文字以内");
-      console.log("タイトルは25文字以内");
+      setErrorMessage("タイトルは25文字以内にしてください");
+      console.log("タイトルは25文字以内にしてください");
     }
   }, []);
 
