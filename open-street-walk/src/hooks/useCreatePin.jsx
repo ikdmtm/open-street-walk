@@ -10,18 +10,62 @@ export const useCreatePin = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
+  //経度-180~180, 緯度-90~90
   const handleChangeLat = useCallback((e) => {
-    setLat(e.target.value);
+    const defaultLat = e.target.value;
+    const limitedLat0 = parseInt(defaultLat.split(".")[0]); // 整数部分を取得し、浮動小数点数に変換
+    const limitedLat1 = defaultLat.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
+    const limitedLat2 = parseFloat(`0.${defaultLat.split(".")[1] || "0"}`);
+    const limitedLat = limitedLat0 + limitedLat2; // 整数部分と小数点以下を合わせる
+    if (limitedLat > -90 && limitedLat < 90) {
+      if (limitedLat1) {
+        if (limitedLat1.length <= 6) {
+          setLat(limitedLat);
+          setErrorMessage(""); // エラーメッセージをクリア
+        } else {
+          setLat((prevLat) => prevLat);
+          setErrorMessage("緯度は小数点以下6桁までにしてください");
+        }
+      } else {
+        setLat(limitedLat0);
+        setErrorMessage("");
+      }
+    } else {
+      setLat((prevLat) => prevLat);
+      setErrorMessage("緯度は-90から90の間にしてください"); // エラーメッセージを設定
+    }
   }, []);
 
   const handleChangeLng = useCallback((e) => {
-    setLng(e.target.value);
+    const defaultLng = e.target.value;
+    const limitedLng0 = parseInt(defaultLng.split(".")[0]); // 整数部分を取得し、浮動小数点数に変換
+    const limitedLng1 = defaultLng.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
+    const limitedLng2 = parseFloat(`0.${defaultLng.split(".")[1] || "0"}`);
+    const limitedLng = limitedLng0 + limitedLng2; // 整数部分と小数点以下を合わせる
+    if (limitedLng > -90 && limitedLng < 90) {
+      if (limitedLng1) {
+        if (limitedLng1.length <= 6) {
+          setLng(limitedLng);
+          setErrorMessage(""); // エラーメッセージをクリア
+        } else {
+          setLng((prevLng) => prevLng);
+          setErrorMessage("経度は小数点以下6桁までにしてください");
+        }
+      } else {
+        setLng(limitedLng0);
+        setErrorMessage("");
+      }
+    } else {
+      setLng((prevLng) => prevLng);
+      setErrorMessage("経度は-90から90の間にしてください"); // エラーメッセージを設定
+    }
   }, []);
 
   const handleChangeTitle = useCallback((e) => {
     if (e.target.value.length <= 25) {
       setTitle(e.target.value);
     } else {
+      setTitle((prevTitle) => prevTitle);
       setErrorMessage("タイトルは25文字以内");
       console.log("タイトルは25文字以内");
     }
@@ -79,7 +123,7 @@ export const useCreatePin = () => {
         //pinの作成失敗
       }
     } else {
-      setErrorMessage("入力に誤りがあります");
+      setErrorMessage("未入力の項目があります");
     }
   };
 
