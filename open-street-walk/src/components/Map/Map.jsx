@@ -62,7 +62,9 @@ const Map = (props) => {
     return (
       <div className="leaflet-top leaflet-right">
         <div className="leaflet-control leaflet-bar">
-          <button onClick={getPosition}>現在地周辺に移動</button>
+          <span onClick={getPosition} className={styles.button}>
+            現在地周辺に移動
+          </span>
         </div>
       </div>
     );

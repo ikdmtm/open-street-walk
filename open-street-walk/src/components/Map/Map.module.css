@@ -21,6 +21,16 @@
   font-size: 16px;
 }
 
+.button{
+  background-color: white;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.button:hover{
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   .image {
     width: 200px;
