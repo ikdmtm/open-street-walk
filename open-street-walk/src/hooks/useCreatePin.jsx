@@ -17,14 +17,14 @@ export const useCreatePin = () => {
     const limitedLat1 = defaultLat.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
     const limitedLat2 = parseFloat(`0.${defaultLat.split(".")[1] || "0"}`);
     const limitedLat = limitedLat0 + limitedLat2; // 整数部分と小数点以下を合わせる
-    if (limitedLat > -180 && limitedLat < 180) {
+    if (limitedLat > -90 && limitedLat < 90) {
       if (limitedLat1) {
         if (limitedLat1.length <= 6) {
           setLat(limitedLat);
           setErrorMessage(""); // エラーメッセージをクリア
         } else {
           setLat((prevLat) => prevLat);
-          setErrorMessage("経度は小数点以下6桁までにしてください");
+          setErrorMessage("緯度は小数点以下6桁までにしてください");
         }
       } else {
         setLat(limitedLat0);
@@ -32,7 +32,7 @@ export const useCreatePin = () => {
       }
     } else {
       setLat((prevLat) => prevLat);
-      setErrorMessage("経度は-180から180の間にしてください"); // エラーメッセージを設定
+      setErrorMessage("緯度は-180から180の間にしてください"); // エラーメッセージを設定
     }
   }, []);
 
@@ -42,7 +42,7 @@ export const useCreatePin = () => {
     const limitedLng1 = defaultLng.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
     const limitedLng2 = parseFloat(`0.${defaultLng.split(".")[1] || "0"}`);
     const limitedLng = limitedLng0 + limitedLng2; // 整数部分と小数点以下を合わせる
-    if (limitedLng > -90 && limitedLng < 90) {
+    if (limitedLng > -180 && limitedLng < 180) {
       if (limitedLng1) {
         if (limitedLng1.length <= 6) {
           setLng(limitedLng);
