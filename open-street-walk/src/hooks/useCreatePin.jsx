@@ -17,14 +17,14 @@ export const useCreatePin = () => {
     const limitedLat1 = defaultLat.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
     const limitedLat2 = parseFloat(`0.${defaultLat.split(".")[1] || "0"}`);
     const limitedLat = limitedLat0 + limitedLat2; // 整数部分と小数点以下を合わせる
-    if (limitedLat > -90 && limitedLat < 90) {
+    if (limitedLat > -180 && limitedLat < 180) {
       if (limitedLat1) {
         if (limitedLat1.length <= 6) {
           setLat(limitedLat);
           setErrorMessage(""); // エラーメッセージをクリア
         } else {
           setLat((prevLat) => prevLat);
-          setErrorMessage("緯度は小数点以下6桁までにしてください");
+          setErrorMessage("経度は小数点以下6桁までにしてください");
         }
       } else {
         setLat(limitedLat0);
@@ -32,7 +32,7 @@ export const useCreatePin = () => {
       }
     } else {
       setLat((prevLat) => prevLat);
-      setErrorMessage("緯度は-90から90の間にしてください"); // エラーメッセージを設定
+      setErrorMessage("経度は-180から180の間にしてください"); // エラーメッセージを設定
     }
   }, []);
 
@@ -127,17 +127,25 @@ export const useCreatePin = () => {
     }
   };
 
-  //現在地の緯度経度を取得
   const handleGetLocation = useCallback(() => {
     if (navigator.geolocation) {
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+        latitude: 6,
+        longitude: 6,
+      };
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
+          setLat(position.coords.latitude.toFixed(6));
+          setLng(position.coords.longitude.toFixed(6));
         },
         (error) => {
           console.error("Error getting location:", error);
-        }
+        },
+        options
       );
     } else {
       console.error("Geolocation is not supported in this browser.");
