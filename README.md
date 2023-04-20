@@ -23,6 +23,7 @@ rails: 7.0.4
     devise  
     devise_token_auth  
     rack-cors
+    aws-sdk-s3
 
 ## 概要
 
