@@ -16,14 +16,17 @@ yarn: 4.0.0
 
 <https://github.com/ikdmtm/open-street-walk-backend>
 
-ruby: 3.2.1  
-rails: 7.0.4
+-   ruby: 3.2.1
+-   rails: 7.0.4
 
--   gem  
+*   gem  
     devise  
     devise_token_auth  
     rack-cors
     aws-sdk-s3
+
+-   db: postgresql
+-   storage: S3
 
 ## 概要
 
@@ -32,9 +35,22 @@ rails: 7.0.4
 
 ## 使いかた
 
+現在地ボタンで現在地周辺のピンを見る
+共有したいスポットがあればピンを作成する
+
 ## API のエンドポイント
 
+| HTTP verb | パス           | 　コントローラー#アクション　          | 　目的　         |
+| --------- | -------------- | -------------------------------------- | ---------------- |
+| GET       | /              | pins#index                             | ピンの情報を取得 |
+| POST      | /pins          | pins#create                            | ピンを新規作成   |
+| POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン         |
+| DELETE    | /auth/sign_out | devise_token_auth/sessions#destroy     | ログアウト       |
+| POST      | /auth          | devise_token_auth/registrations#create | 新規登録         |
+
 ## データベース
+
+<https://github.com/ikdmtm/open-street-walk>
 
 ## 追加予定の機能
 
