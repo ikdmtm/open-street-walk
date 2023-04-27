@@ -19,10 +19,10 @@
 -   ruby: 3.2.1
 -   rails: 7.0.4
 
-*   gem
-    devise
-    devise_token_auth
-    rack-cors
+*   gem  
+    devise  
+    devise_token_auth  
+    rack-cors  
     aws-sdk-s3
 
 -   db: postgresql
