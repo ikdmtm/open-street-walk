@@ -50,7 +50,7 @@ yarn: 4.0.0
 
 ## データベース
 
-<https://github.com/ikdmtm/open-street-walk>
+[erd.pdf](https://github.com/ikdmtm/open-street-walk-backend/files/11277408/erd.pdf)
 
 ## 追加予定の機能
 
