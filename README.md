@@ -2,12 +2,12 @@
 
 ## フロントエンド
 
-node.js: 18.15.0  
-next.js: 13.2.3
-react: 18.0.0  
-yarn: 4.0.0
+-   node.js: 18.15.0
+-   next.js: 13.2.3
+-   react: 18.0.0
+-   yarn: 4.0.0
 
--   パッケージ  
+*   パッケージ  
     js-cookie: 3.0.1  
     leaflet: 1.9.3  
     react-leaflet: 4.2.1
@@ -19,9 +19,9 @@ yarn: 4.0.0
 -   ruby: 3.2.1
 -   rails: 7.0.4
 
-*   gem  
-    devise  
-    devise_token_auth  
+*   gem
+    devise
+    devise_token_auth
     rack-cors
     aws-sdk-s3
 
@@ -50,14 +50,12 @@ yarn: 4.0.0
 
 ## データベース
 
-[erd.pdf](https://github.com/ikdmtm/open-street-walk-backend/files/11277408/erd.pdf)
+![image](https://user-images.githubusercontent.com/77443881/234790573-835c087f-384f-40b0-a0fb-a03813830341.png)
 
 ## 追加予定の機能
 
 -   お気に入り機能
-
-*   マイページの作成
+-   マイページの作成
     -   作成したピンの表示
     -   作成したピンの削除ボタン
-    *   お気に入りに追加したピンの表示
-*   住所を指定してマップを移動
+-   住所を指定してマップを移動
