@@ -10,8 +10,8 @@ https://open-street-walk.vercel.app/
 ## 使いかた
 
 現在地ボタンで現在地周辺のピンを見る  
-ピンをクリックして情報を見る  
-共有したいスポットがあればピンを作成する
+ピンをクリックしてピンの情報を見る  
+共有したいスポットがあればログインしてピンを作成する
 
 ## 使用技術
 
@@ -40,6 +40,8 @@ https://open-street-walk.vercel.app/
     rack-cors  
     aws-sdk-s3
 
+*   インフラ: fly.io
+
 -   db: postgresql
 -   storage: S3
 
@@ -63,4 +65,3 @@ https://open-street-walk.vercel.app/
 -   マイページの作成
     -   作成したピンの一覧表示と削除ボタン
     *   お気に入りしたピンの一覧表示
--   住所を指定してマップを移動
