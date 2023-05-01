@@ -108,7 +108,7 @@ export const useCreatePin = () => {
         }
         const data = await res.json();
         console.log("Success: ピンの作成に成功", data);
-        //ピン追加で即Mapに表示する用のstate、新規作成を違うページでやるならいらない
+        //ピン追加で即Mapに表示する用のstate、新規作成をマップとは違うページでやるならいらない
         // const createdPin = [title, lat, lng];
         // props.setPins((prevPins) => {
         //   return [...prevPins, createdPin];
