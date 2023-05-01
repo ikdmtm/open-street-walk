@@ -50,8 +50,8 @@ https://open-street-walk.vercel.app/
 
 ### デプロイ
 
-PaaS: fly.io
-DB: PostgreSQL
+PaaS: fly.io  
+DB: PostgreSQL  
 Storage: AWS S3
 
 ## API のエンドポイント
