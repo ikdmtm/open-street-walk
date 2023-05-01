@@ -2,7 +2,6 @@ import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Home = (props) => {
   // const [pins, setPins] = useState(
@@ -10,8 +9,6 @@ const Home = (props) => {
   //     return [pin.title, pin.lat, pin.lng];
   //   })
   // );
-  const router = useRouter();
-
   console.log(props);
 
   return (
@@ -32,7 +29,7 @@ const Home = (props) => {
               <Link href={"/pins/new"} className={styles.button}>
                 ピン作成
               </Link>
-              {"  "}
+              {"　"}
               <span
                 className={`${styles.signout} ${styles.button}`}
                 onClick={props.authSignout}
