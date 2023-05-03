@@ -43,6 +43,7 @@ export const SignupForm = (props) => {
         const data = await res.json();
         //ログイン状態の変更
         props.setIsLogin(true);
+        props.setNotice("新規登録が完了しました");
         const uidData = res.headers.get("uid");
         const clientData = res.headers.get("client");
         const accessTokenData = res.headers.get("access-token");
@@ -54,6 +55,7 @@ export const SignupForm = (props) => {
         console.log(data, uidData, clientData, accessTokenData);
       } catch (error) {
         console.error(error);
+        props.setAlert("新規登録に失敗しました");
         //新規登録失敗でクッキーの削除
         Cookies.remove("uid");
         Cookies.remove("client");

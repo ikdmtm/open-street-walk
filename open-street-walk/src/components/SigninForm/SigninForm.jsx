@@ -1,14 +1,14 @@
 import styles from "src/components/SigninForm/SigninForm.module.css";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import { useCallback, useState } from "react";
 import { useRouter } from "next/router";
-import Cookies from "js-cookie";
 
 export const SigninForm = (props) => {
+  const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState("");
-  const router = useRouter();
 
   //input
   const handleEmail = useCallback((e) => {
@@ -38,10 +38,11 @@ export const SigninForm = (props) => {
         const data = await res.json();
         //ログイン状態の変更
         props.setIsLogin(true);
+        props.setNotice("ログインに成功しました");
+        //ログイン成功でクッキーのセット
         const uidData = res.headers.get("uid");
         const clientData = res.headers.get("client");
         const accessTokenData = res.headers.get("access-token");
-        //ログイン成功でクッキーのセット
         Cookies.set("uid", uidData, { expires: 14 });
         Cookies.set("client", clientData, { expires: 14 });
         Cookies.set("access-token", accessTokenData, { expires: 14 });
@@ -49,6 +50,7 @@ export const SigninForm = (props) => {
         console.log(data, uidData, clientData, accessTokenData);
       } catch (error) {
         console.error(error);
+        props.setAlert("ログインに失敗しました");
         //ログイン失敗でクッキーの削除
         Cookies.remove("uid");
         Cookies.remove("client");

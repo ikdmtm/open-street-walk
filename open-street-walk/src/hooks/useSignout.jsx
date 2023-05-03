@@ -6,7 +6,7 @@ export const useSignout = () => {
   const [isLogin, setIsLogin] = useState(false);
   const router = useRouter();
   //ログアウトの処理
-  const authSignout = async () => {
+  const authSignout = async (setNotice, setAlert) => {
     const url = process.env.NEXT_PUBLIC_API_URL + "/auth/sign_out";
     const options = {
       method: "DELETE",
@@ -28,10 +28,12 @@ export const useSignout = () => {
       Cookies.remove("access-token");
       //ログイン状態の変更
       setIsLogin(false);
+      setNotice("ログアウトに成功しました");
       console.log("success: ログアウトに成功");
       router.push("/"); //redirect
     } catch (error) {
       console.error(error);
+      setAlert("ログアウトに失敗しました");
       //ログアウト失敗で何もしない
     }
   };

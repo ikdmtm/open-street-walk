@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
 import Link from "next/link";
+import { FlashMessage } from "src/components/FlashMessage/FlashMessage.jsx";
 
 const Home = (props) => {
   // const [pins, setPins] = useState(
@@ -32,7 +33,7 @@ const Home = (props) => {
               {"　"}
               <span
                 className={`${styles.signout} ${styles.button}`}
-                onClick={props.authSignout}
+                onClick={() => props.authSignout(props.setNotice)}
               >
                 ログアウト
               </span>
@@ -45,6 +46,12 @@ const Home = (props) => {
             </div>
           )}
         </header>
+        <FlashMessage
+          notice={props.notice}
+          setNotice={props.setNotice}
+          alert={props.alert}
+          setAlert={props.setAlert}
+        />
         <main className={styles.main}>
           <Map pinsData={props.pinsData} />
         </main>

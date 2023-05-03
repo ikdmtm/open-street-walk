@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useSignout } from "src/hooks/useSignout";
 import "src/styles/globals.css";
+import { useFlashMessage } from "src/hooks/useFlashMessage";
 
 const App = ({ Component, pageProps }) => {
+  //ログイン状態を管理
   const authSignout = useSignout();
   useEffect(() => {
     const token = Cookies.get("uid");
@@ -11,7 +13,11 @@ const App = ({ Component, pageProps }) => {
       authSignout.setIsLogin(true);
     }
   }, []);
-  return <Component {...pageProps} {...authSignout} />;
+
+  //フラッシュメッセージ
+  const flashMessage = useFlashMessage();
+
+  return <Component {...pageProps} {...authSignout} {...flashMessage} />;
 };
 
 export default App;

@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import Link from "next/link";
 import { SignupForm } from "src/components/SignupForm/SignupForm";
+import { FlashMessage } from "src/components/FlashMessage/FlashMessage";
 
 const Signup = (props) => {
   return (
@@ -18,9 +19,18 @@ const Signup = (props) => {
             OpenStreetWalk
           </Link>
         </header>
-
+        <FlashMessage
+          notice={props.notice}
+          setNotice={props.setNotice}
+          alert={props.alert}
+          setAlert={props.setAlert}
+        />
         <main className={styles.main}>
-          <SignupForm setIsLogin={props.setIsLogin} />
+          <SignupForm
+            setIsLogin={props.setIsLogin}
+            setNotice={props.setNotice}
+            setAlert={props.setAlert}
+          />
         </main>
       </div>
     </>

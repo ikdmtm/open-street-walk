@@ -13,8 +13,8 @@ export const useCreatePin = () => {
   //経度-180~180, 緯度-90~90
   const handleChangeLat = useCallback((e) => {
     const defaultLat = e.target.value;
-    const limitedLat0 = parseInt(defaultLat.split(".")[0]); // 整数部分を取得し、浮動小数点数に変換
-    const limitedLat1 = defaultLat.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
+    const limitedLat0 = parseInt(defaultLat.split(".")[0]); // 整数部分を取得
+    const limitedLat1 = defaultLat.split(".")[1]; // 小数点以下の部分を文字列として取得し、小数点に変換（小数点以下がない場合は0をセット）
     const limitedLat2 = parseFloat(`0.${defaultLat.split(".")[1] || "0"}`);
     const limitedLat = limitedLat0 + limitedLat2; // 整数部分と小数点以下を合わせる
 
@@ -39,8 +39,8 @@ export const useCreatePin = () => {
 
   const handleChangeLng = useCallback((e) => {
     const defaultLng = e.target.value;
-    const limitedLng0 = parseInt(defaultLng.split(".")[0]); // 整数部分を取得し、浮動小数点数に変換
-    const limitedLng1 = defaultLng.split(".")[1]; // 小数点以下の部分を文字列として取得し、浮動小数点数に変換（小数点以下がない場合は0をセット）
+    const limitedLng0 = parseInt(defaultLng.split(".")[0]); // 整数部分を取得
+    const limitedLng1 = defaultLng.split(".")[1]; // 小数点以下の部分を文字列として取得し、小数点に変換（小数点以下がない場合は0をセット）
     const limitedLng2 = parseFloat(`0.${defaultLng.split(".")[1] || "0"}`);
     const limitedLng = limitedLng0 + limitedLng2; // 整数部分と小数点以下を合わせる
     if (limitedLng > -180 && limitedLng < 180) {
@@ -88,7 +88,7 @@ export const useCreatePin = () => {
   };
 
   //ピンをデータベースに保存
-  const createPin = async () => {
+  const createPin = async (setNotice, setAlert) => {
     if (title && lat && lng && imageFile) {
       const url = process.env.NEXT_PUBLIC_API_URL + "/pins";
       const data = await createFormData();
@@ -118,9 +118,11 @@ export const useCreatePin = () => {
         setLng("");
         setTitle("");
         setImageFile(null);
+        setNotice("新しいピンを作成しました");
         router.push("/"); //redirect
       } catch (error) {
-        console.error(error);
+        console.error(error, data);
+        setAlert("ピンの作成に失敗しました");
         //pinの作成失敗
       }
     } else {

@@ -40,7 +40,10 @@ export const PinCreateForm = (props) => {
         <button onClick={props.handleGetLocation}>現在地を取得</button>
       </div>
       <div className={styles.inputGroupe}>
-        <button className={styles.button} onClick={props.createPin}>
+        <button
+          className={styles.button}
+          onClick={() => props.createPin(props.setNotice, props.setAlert)}
+        >
           ピンを作成
         </button>
       </div>
