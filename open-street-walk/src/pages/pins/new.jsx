@@ -1,7 +1,8 @@
-import { PinCreateForm } from "src/components/PinCreateForm/PinCreateForm";
 import styles from "src/styles/Home.module.css";
 import Link from "next/link";
+import { PinCreateForm } from "src/components/PinCreateForm/PinCreateForm";
 import { useCreatePin } from "src/hooks/useCreatePin";
+import { FlashMessage } from "src/components/FlashMessage/FlashMessage";
 
 const New = (props) => {
   const {
@@ -46,6 +47,12 @@ const New = (props) => {
             </div>
           )}
         </header>
+        <FlashMessage
+          notice={props.notice}
+          setNotice={props.setNotice}
+          alert={props.alert}
+          setAlert={props.setAlert}
+        />
         <main className={styles.main}>
           <PinCreateForm
             title={title}
@@ -59,6 +66,8 @@ const New = (props) => {
             handleChangeFile={handleChangeFile}
             createPin={createPin}
             handleGetLocation={handleGetLocation}
+            setNotice={props.setNotice}
+            setAlert={props.setAlert}
           />
         </main>
       </div>
