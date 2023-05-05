@@ -22,7 +22,7 @@ const Home = (props) => {
       </Head>
       <div className={styles.container}>
         <header className={styles.header}>
-          <Link href={"/"} className={`${styles.logo} ${styles.button}`}>
+          <Link href={"/"} className={"styles.logo"}>
             OpenStreetWalk
           </Link>
           {props.isLogin ? (
