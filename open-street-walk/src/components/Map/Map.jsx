@@ -76,7 +76,7 @@ const Map = (props) => {
     return formattedCreatedAt;
   };
 
-  //クリックした場所にピンを作成
+  // クリックした場所にピンを作成;
   // const HandleClickMap = () => {
   //   const map = useMapEvents({
   //     click(e) {
@@ -89,7 +89,9 @@ const Map = (props) => {
   //     <Marker position={position}>
   //       <Popup>
   //         <p>
-  //           {position.lat.toFixed(4)}, {position.lng.toFixed(4)}
+  //           クリックした場所の緯度経度
+  //           <br />
+  //           {position.lat.toFixed(6)}, {position.lng.toFixed(6)}
   //         </p>
   //       </Popup>
   //     </Marker>
