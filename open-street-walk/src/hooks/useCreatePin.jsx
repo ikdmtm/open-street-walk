@@ -10,7 +10,7 @@ export const useCreatePin = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
-  //経度-180~180, 緯度-90~90
+  //緯度-90~90, 経度-180~180, lat, lang
   const handleChangeLat = useCallback((e) => {
     const defaultLat = e.target.value;
     const limitedLat0 = parseInt(defaultLat.split(".")[0]); // 整数部分を取得
@@ -80,7 +80,7 @@ export const useCreatePin = () => {
 
   const createFormData = async () => {
     const formData = new FormData();
-    formData.set("pin[title]", `${title}`);
+    formData.set("pin[title]", title);
     formData.set("pin[lat]", lat);
     formData.set("pin[lng]", lng);
     formData.set("pin[image]", imageFile);
