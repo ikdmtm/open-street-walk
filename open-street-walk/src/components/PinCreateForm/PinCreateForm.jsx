@@ -19,7 +19,7 @@ export const PinCreateForm = (props) => {
         <input type="file" onChange={props.handleChangeFile}></input>
       </div>
       <div className={styles.inputGroupe}>
-        <p className={styles.inputTitle}>経度</p>
+        <p className={styles.inputTitle}>緯度</p>
         <input
           type="number"
           onChange={props.handleChangeLat}
@@ -28,7 +28,7 @@ export const PinCreateForm = (props) => {
         ></input>
       </div>
       <div className={styles.inputGroupe}>
-        <p className={styles.inputTitle}>緯度</p>
+        <p className={styles.inputTitle}>経度</p>
         <input
           type="number"
           onChange={props.handleChangeLng}
