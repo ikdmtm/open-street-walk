@@ -36,12 +36,30 @@
 }
 
 .table{
-  border: solid 1px #e5e7eb;
+  border: solid 1px #d6d7d8;
   border-collapse: collapse;
+  margin: 5px;
+  padding: 5px;
+  width: 95%;
 }
 
-.th{
-  padding: 10px;
+.table th{
+  padding: 5px;
+  border: 1px #d6d7d8 solid;
+}
+
+.table td{
+  padding: 5px;
+  border: 1px #d6d7d8 solid;
+}
+
+.pinDelete{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pinDeleteButton{
+  color: #db303e;
 }
 
 .signout:hover{
@@ -50,6 +68,7 @@
 
 .button:hover{
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .footer {

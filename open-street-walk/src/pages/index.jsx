@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "src/styles/Home.module.css";
 import Map from "src/components/Map";
 import Link from "next/link";
+import Cookies from "js-cookie";
 import { FlashMessage } from "src/components/FlashMessage/FlashMessage.jsx";
 
 const Home = (props) => {
@@ -27,13 +28,17 @@ const Home = (props) => {
           </Link>
           {props.isLogin ? (
             <div>
+              <Link href={`/users/${Cookies.get("user-id")}`}>マイページ</Link>
+              {"　"}
               <Link href={"/pins/new"} className={styles.button}>
                 ピン作成
               </Link>
               {"　"}
               <span
                 className={`${styles.signout} ${styles.button}`}
-                onClick={() => props.authSignout(props.setNotice)}
+                onClick={() =>
+                  props.authSignout(props.setNotice, props.setAlert)
+                }
               >
                 ログアウト
               </span>
@@ -62,6 +67,7 @@ const Home = (props) => {
     </>
   );
 };
+export default Home;
 
 export const getServerSideProps = async () => {
   const url = process.env.NEXT_PUBLIC_API_URL + "/pins";
@@ -87,5 +93,3 @@ export const getServerSideProps = async () => {
     };
   }
 };
-
-export default Home;
