@@ -1,6 +1,5 @@
 import styles from "src/components/Map/Map.module.css";
 import Image from "next/image";
-import { format } from "date-fns";
 import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
@@ -68,12 +67,6 @@ const Map = (props) => {
         </div>
       </div>
     );
-  };
-
-  const formatFunction = (time) => {
-    const createdAt = new Date(time);
-    const formattedCreatedAt = format(createdAt, "yyyy-MM-dd  HH:mm");
-    return formattedCreatedAt;
   };
 
   // クリックした場所にピンを作成;
@@ -153,7 +146,7 @@ const Map = (props) => {
                     {",   "}
                     {pin.lng}
                     <br />
-                    {formatFunction(pin.created_at)}
+                    {props.formatFunction(pin.created_at)}
                   </p>
                 </Popup>
               </Marker>
