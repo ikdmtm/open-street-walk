@@ -68,15 +68,12 @@ export const useCreatePin = () => {
     } else {
       setTitle((prevTitle) => prevTitle);
       setErrorMessage("タイトルは25文字以内にしてください");
-      console.log("タイトルは25文字以内にしてください");
     }
   }, []);
 
   const handleChangeFile = useCallback((e) => {
     setImageFile(e.target.files[0]);
   }, []);
-
-  console.log(title, lat, lng, imageFile, errorMessage);
 
   const createFormData = async () => {
     const formData = new FormData();
