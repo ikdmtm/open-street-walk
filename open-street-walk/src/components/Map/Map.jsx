@@ -123,17 +123,17 @@ const Map = (props) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {props.pinsData && props.pinsData.pins && props.pinsData.pins.length
-        ? props.pinsData.pins.map((pin) => {
+        ? props.pinsData.pins.map((pin, index) => {
             return (
               <Marker position={[pin.lat, pin.lng]} key={pin.id}>
                 <Popup>
                   <p className={styles.title}>{pin.title}</p>
-                  {props.pinsData.pin_urls[pin.id - 1] ? (
+                  {props.pinsData.pin_urls[index] ? (
                     <div className={styles.image}>
                       <Image
                         src={
                           process.env.NEXT_PUBLIC_API_URL +
-                          props.pinsData.pin_urls[pin.id - 1]
+                          props.pinsData.pin_urls[index]
                         }
                         alt="画像"
                         layout="fill"
