@@ -5,9 +5,9 @@ import { useCallback, useState } from "react";
 import Cookies from "js-cookie";
 
 export const SignupForm = (props) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmation, setConfirmation] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmation, setConfirmation] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
 
@@ -22,7 +22,6 @@ export const SignupForm = (props) => {
     setConfirmation(e.target.value);
   }, []);
 
-  console.log(email, password, confirmation);
   //新規登録処理
   const url = process.env.NEXT_PUBLIC_API_URL + "/auth";
   const handleAuth = async () => {
@@ -32,7 +31,7 @@ export const SignupForm = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: `${email}`, password: password }), //入力された値を入れるように変更
+        body: JSON.stringify({ email: `${email}`, password: password }),
       };
       try {
         const res = await fetch(url, options);
@@ -43,15 +42,17 @@ export const SignupForm = (props) => {
         const data = await res.json();
         //ログイン状態の変更
         props.setIsLogin(true);
-        props.setNotice("新規登録が完了しました");
         const uidData = res.headers.get("uid");
         const clientData = res.headers.get("client");
         const accessTokenData = res.headers.get("access-token");
+        const userId = data.data.id;
         //新規登録成功でクッキーのセット
-        Cookies.set("uid", uidData);
-        Cookies.set("client", clientData);
-        Cookies.set("access-token", accessTokenData);
+        Cookies.set("uid", uidData, { expires: 14 });
+        Cookies.set("client", clientData, { expires: 14 });
+        Cookies.set("access-token", accessTokenData, { expires: 14 });
+        Cookies.set("user-id", userId, { expires: 14 });
         router.push("/"); //redirect
+        props.setNotice("新規登録が完了しました");
         console.log(data, uidData, clientData, accessTokenData);
       } catch (error) {
         console.error(error);
@@ -60,6 +61,7 @@ export const SignupForm = (props) => {
         Cookies.remove("uid");
         Cookies.remove("client");
         Cookies.remove("access-token");
+        Cookies.remove("user-id");
       }
     } else {
       setErrorMessage("入力に誤りがあります");

@@ -26,6 +26,7 @@ export const useSignout = () => {
       Cookies.remove("uid");
       Cookies.remove("client");
       Cookies.remove("access-token");
+      Cookies.remove("user-id");
       //ログイン状態の変更
       setIsLogin(false);
       setNotice("ログアウトに成功しました");

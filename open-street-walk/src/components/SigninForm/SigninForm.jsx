@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 export const SigninForm = (props) => {
   const router = useRouter();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   //input
@@ -38,16 +38,18 @@ export const SigninForm = (props) => {
         const data = await res.json();
         //ログイン状態の変更
         props.setIsLogin(true);
-        props.setNotice("ログインに成功しました");
         //ログイン成功でクッキーのセット
         const uidData = res.headers.get("uid");
         const clientData = res.headers.get("client");
         const accessTokenData = res.headers.get("access-token");
+        const userId = data.data.id;
         Cookies.set("uid", uidData, { expires: 14 });
         Cookies.set("client", clientData, { expires: 14 });
         Cookies.set("access-token", accessTokenData, { expires: 14 });
+        Cookies.set("user-id", userId, { expires: 14 });
         router.push("/"); //redirect
-        console.log(data, uidData, clientData, accessTokenData);
+        props.setNotice("ログインに成功しました");
+        console.log(data, uidData, clientData, accessTokenData, userId);
       } catch (error) {
         console.error(error);
         props.setAlert("ログインに失敗しました");
@@ -55,6 +57,7 @@ export const SigninForm = (props) => {
         Cookies.remove("uid");
         Cookies.remove("client");
         Cookies.remove("access-token");
+        Cookies.remove("user-id");
       }
     } else {
       setErrorMessage("入力に誤りがあります");
