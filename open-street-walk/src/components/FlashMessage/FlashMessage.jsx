@@ -2,7 +2,7 @@ import styles from "src/components/FlashMessage/FlashMessage.module.css";
 import { useEffect } from "react";
 
 export const FlashMessage = (props) => {
-  const displayTime = 3000; // 表示時間（ミリ秒）
+  const displayTime = 5000; // 表示時間（ミリ秒）
 
   //一定時間後メッセージを削除
   useEffect(() => {
