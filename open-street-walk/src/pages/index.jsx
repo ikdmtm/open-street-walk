@@ -53,7 +53,10 @@ const Home = (props) => {
           setAlert={props.setAlert}
         />
         <main className={styles.main}>
-          <Map pinsData={props.pinsData} />
+          <Map
+            pinsData={props.pinsData}
+            formatFunction={props.formatFunction}
+          />
         </main>
       </div>
     </>
