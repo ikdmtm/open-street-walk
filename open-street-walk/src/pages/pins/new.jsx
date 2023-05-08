@@ -30,7 +30,9 @@ const New = (props) => {
             <div>
               <span
                 className={`${styles.signout} ${styles.button}`}
-                onClick={props.authSignout}
+                onClick={() =>
+                  props.authSignout(props.setNotice, props.setAlert)
+                }
               >
                 ログアウト
               </span>
