@@ -10,8 +10,13 @@ https://open-street-walk.vercel.app/
 ## 使い方
 
 現在地ボタンで現在地周辺のピンを見る  
-ピンをクリックしてピンの情報を見る  
+![現在地周辺に移動](https://user-images.githubusercontent.com/77443881/237013966-36a9ca1d-7ccb-4625-8d92-57cb059ba3ba.gif)
+
+ピンをクリックしてピンの情報を見る
+![ポップアップを表示](https://user-images.githubusercontent.com/77443881/237014318-663c2378-7cdb-46e5-939c-706e7893dbcd.gif)
+
 共有したいスポットがあればログインしてピンを作成する
+![ログインとピンの作成](https://user-images.githubusercontent.com/77443881/237014411-d0fba90e-79c5-40af-a807-4e0294183baa.gif)
 
 ## 開発環境
 
