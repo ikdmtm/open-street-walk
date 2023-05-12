@@ -45,6 +45,9 @@ https://open-street-walk.vercel.app/
 
 -   Ruby on Rails 7.0.4
 
+-   DB: PostgreSQL
+-   Storage: AWS S3
+
 #### 使用 gem
 
 -   devise
@@ -55,9 +58,7 @@ https://open-street-walk.vercel.app/
 
 ### デプロイ
 
-PaaS: fly.io  
-DB: PostgreSQL  
-Storage: AWS S3
+PaaS: fly.io
 
 ## API のエンドポイント
 
