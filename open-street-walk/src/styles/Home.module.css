@@ -53,11 +53,6 @@
   border: 1px #d6d7d8 solid;
 }
 
-.pinDelete{
-  display: flex;
-  justify-content: space-between;
-}
-
 .pinDeleteButton{
   color: #db303e;
 }
