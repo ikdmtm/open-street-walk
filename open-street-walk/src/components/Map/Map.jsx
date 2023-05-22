@@ -28,14 +28,14 @@ const Map = (props) => {
   const [position, setPosition] = useState([35.685, 139.755]); //中心
   const zoom = 11;
 
-  const SetViewOnClick = () => {
-    const map = useMapEvent("click", (e) => {
-      map.setView(e.latlng, map.getZoom(), {
-        animate: true,
-      });
-    });
-    return null;
-  };
+  // const SetViewOnClick = () => {
+  //   const map = useMapEvents("click", (e) => {
+  //     map.setView(e.latlng, map.getZoom(), {
+  //       animate: true,
+  //     });
+  //   });
+  //   return null;
+  // };
 
   const CurrentPosition = () => {
     const map = useMap();
