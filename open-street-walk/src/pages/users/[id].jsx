@@ -98,7 +98,7 @@ const MyPage = (props) => {
                 ? props.pinsData.pins.map((pin) => {
                     return (
                       <tr key={pin.id}>
-                        <td className={styles.pinDelete}>{pin.title}</td>
+                        <td>{pin.title}</td>
                         <td>{pin.lat}</td>
                         <td>{pin.lng}</td>
                         <td>{props.formatFunction(pin.created_at)}</td>
