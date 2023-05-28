@@ -1,11 +1,11 @@
 # OpenStreetWalk
 
-https://open-street-walk.vercel.app/
+アプリ URL: https://open-street-walk.vercel.app/
 
 ## 概要
 
-散歩がより楽しくなるようなアプリ  
-地図上にピンを設置して散歩スポットを共有することができる
+散歩がより楽しくなるようなアプリです。
+散歩中に面白い場所を見つけたら、地図上にピンを作成することで散歩スポットを共有することができます。
 
 ## 使い方
 
@@ -41,7 +41,7 @@ https://open-street-walk.vercel.app/
 
 ### バックエンド
 
-<https://github.com/ikdmtm/open-street-walk-backend>
+バックエンドのリポジトリ: <https://github.com/ikdmtm/open-street-walk-backend>
 
 -   Ruby on Rails 7.0.4
 
