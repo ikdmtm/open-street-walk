@@ -30,8 +30,9 @@
 
 ### フロントエンド
 
--   Next.js 13.2.3
 -   React 18.0.0
+-   Next.js 13.2.3
+-   Vercel
 
 #### 使用パッケージ
 
@@ -44,9 +45,9 @@
 バックエンドのリポジトリ: <https://github.com/ikdmtm/open-street-walk-backend>
 
 -   Ruby on Rails 7.0.4
-
 -   DB: PostgreSQL
 -   Storage: AWS S3
+-   PaaS: fly.io
 
 #### 使用 gem
 
@@ -55,10 +56,6 @@
 -   rack-cors
 -   aws-sdk-s3
 -   pg
-
-### デプロイ
-
-PaaS: fly.io
 
 ## API のエンドポイント
 
