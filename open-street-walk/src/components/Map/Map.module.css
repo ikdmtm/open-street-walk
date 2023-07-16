@@ -19,6 +19,11 @@
 
 .description{
   font-size: 16px;
+  color: rgb(104, 104, 104);
+}
+
+.latlng {
+  font-size: 15px;
 }
 
 .button{

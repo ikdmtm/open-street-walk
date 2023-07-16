@@ -127,7 +127,7 @@ const Map = (props) => {
             return (
               <Marker position={[pin.lat, pin.lng]} key={pin.id}>
                 <Popup>
-                  <p className={styles.title}>{pin.title}</p>
+                  <span className={styles.title}>{pin.title}</span>
                   {props.pinsData.pin_urls[index] ? (
                     <div className={styles.image}>
                       <Image
@@ -141,13 +141,15 @@ const Map = (props) => {
                       />
                     </div>
                   ) : null}
-                  <p className={styles.description}>
-                    {pin.lat}
-                    {",   "}
-                    {pin.lng}
+                  <div className={styles.description}>
+                    <span className={styles.latlng}>
+                      {pin.lat}
+                      {",   "}
+                      {pin.lng}
+                    </span>
                     <br />
                     {props.formatFunction(pin.created_at)}
-                  </p>
+                  </div>
                 </Popup>
               </Marker>
             );
