@@ -25,7 +25,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const Map = (props) => {
-  const [position, setPosition] = useState([35.685, 139.755]); //中心
+  const [position, setPosition] = useState([35.685, 139.755]); // 中心位置の設定
   const zoom = 11;
 
   // const SetViewOnClick = () => {
@@ -37,9 +37,9 @@ const Map = (props) => {
   //   return null;
   // };
 
+  //現在地を取得
   const CurrentPosition = () => {
     const map = useMap();
-    //現在地を取得
     const getPosition = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -59,6 +59,7 @@ const Map = (props) => {
     };
 
     return (
+      // 現在地取得ボタン
       <div className="leaflet-top leaflet-right">
         <div className="leaflet-control leaflet-bar">
           <span onClick={getPosition} className={styles.button}>
@@ -130,15 +131,24 @@ const Map = (props) => {
                   <div className={styles.title}>{pin.title}</div>
                   {props.pinsData.pin_urls[index] ? (
                     <div className={styles.image}>
-                      <Image
-                        src={
+                      <a
+                        href={
                           process.env.NEXT_PUBLIC_API_URL +
                           props.pinsData.pin_urls[index]
                         }
-                        alt="画像"
-                        layout="fill"
-                        objectFit="contain"
-                      />
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Image
+                          src={
+                            process.env.NEXT_PUBLIC_API_URL +
+                            props.pinsData.pin_urls[index]
+                          }
+                          alt="画像"
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </a>
                     </div>
                   ) : null}
                   <div className={styles.description}>
