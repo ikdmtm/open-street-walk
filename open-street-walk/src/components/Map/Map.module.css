@@ -14,24 +14,28 @@
 
 .title {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 
 }
 
 .description {
   font-size: 16px;
   color: rgb(104, 104, 104);
+  margin-top: 10px;
 }
 
 .latlng {
   display: flex;
   flex-direction: row;
-  font-size: 15px;
-  margin-top: 5px;
+  font-size: 14px;
 }
 
 .latlng li {
   margin-right: 5px;
+}
+
+.date {
+  font-size: 15px;
 }
 
 .button {

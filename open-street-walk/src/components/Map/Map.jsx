@@ -150,7 +150,9 @@ const Map = (props) => {
                       <li>{pin.lat},</li>
                       <li>{pin.lng}</li>
                     </ul>
-                    {props.formatFunction(pin.created_at)}
+                    <span className={styles.date}>
+                      {props.formatFunction(pin.created_at)}
+                    </span>
                   </div>
                 </Popup>
               </Marker>
