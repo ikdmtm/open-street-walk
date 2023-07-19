@@ -24,8 +24,14 @@
 }
 
 .latlng {
+  display: flex;
+  flex-direction: row;
   font-size: 15px;
   margin-top: 5px;
+}
+
+.latlng li {
+  margin-right: 5px;
 }
 
 .button {

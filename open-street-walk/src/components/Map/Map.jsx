@@ -1,5 +1,6 @@
 import styles from "src/components/Map/Map.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 import {
   MapContainer,
@@ -131,14 +132,7 @@ const Map = (props) => {
                   <div className={styles.title}>{pin.title}</div>
                   {props.pinsData.pin_urls[index] ? (
                     <div className={styles.image}>
-                      <a
-                        href={
-                          process.env.NEXT_PUBLIC_API_URL +
-                          props.pinsData.pin_urls[index]
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <Link href={"./images/" + pin.id}>
                         <Image
                           src={
                             process.env.NEXT_PUBLIC_API_URL +
@@ -148,16 +142,14 @@ const Map = (props) => {
                           layout="fill"
                           objectFit="contain"
                         />
-                      </a>
+                      </Link>
                     </div>
                   ) : null}
                   <div className={styles.description}>
-                    <div className={styles.latlng}>
-                      {pin.lat}
-                      {",   "}
-                      {pin.lng}
-                    </div>
-
+                    <ul className={styles.latlng}>
+                      <li>{pin.lat},</li>
+                      <li>{pin.lng}</li>
+                    </ul>
                     {props.formatFunction(pin.created_at)}
                   </div>
                 </Popup>
