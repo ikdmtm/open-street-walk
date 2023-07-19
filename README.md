@@ -59,15 +59,16 @@
 
 ## API のエンドポイント
 
-| HTTP verb | パス           | 　コントローラー#アクション　          | 　機能　         |
-| --------- | -------------- | -------------------------------------- | ---------------- |
-| GET       | /              | pins#index                             | ピンの情報を取得 |
-| POST      | /pins          | pins#create                            | ピンの新規作成   |
-| DELETE    | /pins/:id      | pins#delete                            | ピンの削除       |
-| POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン         |
-| DELETE    | /auth/sign_out | devise_token_auth/sessions#destroy     | ログアウト       |
-| POST      | /auth          | devise_token_auth/registrations#create | 新規登録         |
-| GET       | /users/:id     | users#show                             | マイページ       |
+| HTTP verb | パス           | 　コントローラー#アクション　          | 　機能　                 |
+| --------- | -------------- | -------------------------------------- | ------------------------ |
+| GET       | /              | pins#index                             | すべてのピンの情報を取得 |
+| GET       | /pins/:id      | pins#show                              | ピンの情報を取得         |
+| POST      | /pins          | pins#create                            | ピンの新規作成           |
+| DELETE    | /pins/:id      | pins#delete                            | ピンの削除               |
+| POST      | /auth/sign_in  | devise_token_auth/sessions#create      | ログイン                 |
+| DELETE    | /auth/sign_out | devise_token_auth/sessions#destroy     | ログアウト               |
+| POST      | /auth          | devise_token_auth/registrations#create | 新規登録                 |
+| GET       | /users/:id     | users#show                             | マイページ               |
 
 ## データベース設計
 
