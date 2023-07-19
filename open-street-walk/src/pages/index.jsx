@@ -27,28 +27,35 @@ const Home = (props) => {
             OpenStreetWalk
           </Link>
           {props.isLogin ? (
-            <div>
-              <Link href={`/users/${Cookies.get("user-id")}`}>マイページ</Link>
-              {"　"}
-              <Link href={"/pins/new"} className={styles.button}>
-                ピン作成
-              </Link>
-              {"　"}
-              <span
+            <ul className={styles.headerList}>
+              <li>
+                <Link href={`/users/${Cookies.get("user-id")}`}>
+                  マイページ
+                </Link>
+              </li>
+              <li>
+                <Link href={"/pins/new"} className={styles.button}>
+                  ピン作成
+                </Link>
+              </li>
+              <li
                 className={`${styles.signout} ${styles.button}`}
                 onClick={() =>
                   props.authSignout(props.setNotice, props.setAlert)
                 }
               >
                 ログアウト
-              </span>
-            </div>
+              </li>
+            </ul>
           ) : (
-            <div>
-              <Link href={"/signin"}>ログイン</Link>
-              {"　"}
-              <Link href={"/signup"}>新規登録</Link>
-            </div>
+            <ul className={styles.headerList}>
+              <li>
+                <Link href={"/signin"}>ログイン</Link>
+              </li>
+              <li>
+                <Link href={"/signup"}>新規登録</Link>
+              </li>
+            </ul>
           )}
         </header>
         <FlashMessage
